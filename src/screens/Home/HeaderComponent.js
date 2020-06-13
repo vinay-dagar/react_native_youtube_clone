@@ -2,7 +2,8 @@ import React from 'react'
 import { StyleSheet, View, Dimensions, TouchableWithoutFeedback, Image, Text } from 'react-native'
 import { MaterialIcons, Fontisto } from '@expo/vector-icons';
 
-const HeaderComponent = () => {
+const HeaderComponent = ({navigation}) => {
+    console.log({navigation})
     return (
         <View style={styles.headerContainer} >
             <View style={styles.header}>
@@ -11,9 +12,13 @@ const HeaderComponent = () => {
                     <Text style={{ fontSize: 20, fontWeight: "700" }}>YouTube</Text>
                 </View>
                 <View style={styles.iconContainer}>
-                    <MaterialIcons name="videocam" size={30} color="#5c5c5c" />
-                    <Fontisto name="search" size={20} color="#5c5c5c" />
-                    <TouchableWithoutFeedback onPress={() => console.log('settings')} >
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate('upload')} >
+                        <MaterialIcons name="videocam" size={30} color="#5c5c5c" />
+                    </TouchableWithoutFeedback>
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate('search')}>
+                        <Fontisto name="search" size={20} color="#5c5c5c" />
+                    </TouchableWithoutFeedback>                    
+                    <TouchableWithoutFeedback onPress={() => navigation.navigate('setting')} >
                         <View style={styles.imageContainer}></View>
                     </TouchableWithoutFeedback>
                 </View>

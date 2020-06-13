@@ -6,7 +6,7 @@ const HomeScreen = (props) => {
     return (
         <View style={styles.container}>
             <StatusBar backgroundColor="#b80404" />
-            <HeaderComponent />
+            <HeaderComponent {...props} />
             <Text> This is the home Screen of youtube Clone </Text>
         </View>
     )

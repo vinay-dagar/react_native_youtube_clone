@@ -13,6 +13,11 @@ import SubscriptionScreen from '../screens/Subscription';
 import InboxScreen from '../screens/Inbox'
 import LibrarieScreen from '../screens/Library'
 
+// Extra Screens
+import SettingScreen from '../screens/SettingsScreen'
+import SearchScreen from '../screens/SearchScreen'
+import UploadScreen from '../screens/UploadsScreen'
+
 const Tabs = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -67,7 +72,13 @@ const TabNavigation = () => {
 const Routes = () => {
     return (
         <NavigationContainer>
-            <TabNavigation />
+            <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="home">
+                <Stack.Screen name="home" component={TabNavigation} />
+                <Stack.Screen name="upload" component={UploadScreen} />
+                <Stack.Screen name="search" component={SearchScreen} />
+                <Stack.Screen name="setting" component={SettingScreen} />
+            </Stack.Navigator>
+            {/* <TabNavigation /> */}
         </NavigationContainer>
     )
 }
