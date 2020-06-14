@@ -1,26 +1,44 @@
 import React from 'react'
-import { StyleSheet, View, Dimensions, TouchableWithoutFeedback, Image, Text } from 'react-native'
-import { MaterialIcons, Fontisto } from '@expo/vector-icons';
+import { StyleSheet, View, Dimensions, TouchableWithoutFeedback, Text, ScrollView, Button } from 'react-native'
 
-const HeaderComponent = ({navigation}) => {
+const HeaderComponent = ({ navigation }) => {
+
+    const navBarItems = [
+        { title: 'All', value: 'all' },
+        { title: 'Sports', value: 'sports' },
+        { title: 'Fashion', value: 'fashion' },
+        { title: 'Gaming', value: 'gaming' },
+        { title: 'Universe', value: 'universe' },
+        { title: 'Comedy', value: 'comedy' },
+        { title: 'Entertainment', value: 'entertainment' },
+        { title: 'Action', value: 'action' },
+        { title: 'Programming', value: 'programming' },
+        { title: 'JavaScript', value: 'javaScript' },
+        { title: 'Coding', value: 'coding' },
+        { title: 'Python', value: 'python' },
+    ];
+
     return (
-        <View style={styles.headerContainer} >
+        <View style={styles.headerContainer}>
             <View style={styles.header}>
-                <View style={styles.logoContainer}>
-                    <Image style={styles.iconStyle} resizeMode="contain" source={require('../../../assets/youtube.png')} />
-                    <Text style={{ fontSize: 20, fontWeight: "700" }}>YouTube</Text>
-                </View>
-                <View style={styles.iconContainer}>
-                    <TouchableWithoutFeedback onPress={() => navigation.navigate('upload')} >
-                        <MaterialIcons name="videocam" size={30} color="#5c5c5c" />
-                    </TouchableWithoutFeedback>
-                    <TouchableWithoutFeedback onPress={() => navigation.navigate('search')}>
-                        <Fontisto name="search" size={20} color="#5c5c5c" />
-                    </TouchableWithoutFeedback>                    
-                    <TouchableWithoutFeedback onPress={() => navigation.navigate('setting')} >
-                        <View style={styles.imageContainer}></View>
-                    </TouchableWithoutFeedback>
-                </View>
+                <ScrollView
+                    showsHorizontalScrollIndicator={true}
+                    pagingEnabled={false}
+                    horizontal={true}
+                    scrollEventThrottle={20}
+                    contentContainerStyle={styles.contentContainer}
+                    decelerationRate="normal"
+                    scrollEnabled={true}
+                    overScrollMode="auto"
+                >
+                    {
+                        navBarItems.map(n => (
+                            <View style={styles.textContainer} key={n.value}>
+                                <Text style={styles.scrollText}> {n.title} </Text>
+                            </View>
+                        ))
+                    }
+                </ScrollView>
             </View>
         </View>
     )
@@ -32,39 +50,36 @@ const DEVICE_WIDTH = Dimensions.get('window').width;
 
 const styles = StyleSheet.create({
     headerContainer: {
-        width: DEVICE_WIDTH,
         height: 50,
-        backgroundColor: "#fff",
-        alignItems: 'center',
-        justifyContent: "center"
+        width: DEVICE_WIDTH,
     },
     header: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+        flex: 1,
+        justifyContent: 'center',
         alignItems: "center",
-        width: '100%'
+        flexGrow: 1,
+        overflow: "scroll",
+        padding: 10,
+        backgroundColor: "#fff",
+        borderTopColor: "#eee",
+        borderTopWidth: 1.5
     },
-    iconStyle: {
-        width: '20%',
-        height: 30
-    },
-    logoContainer: {
-        flexDirection: 'row',
-        width: 180,
-        height: '100%',
+    contentContainer: {
+        justifyContent: 'center',
         alignItems: "center"
     },
-    iconContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
+    textContainer: {
         alignItems: 'center',
-        width: '45%',
-        paddingRight: 10
+        justifyContent: 'center',
+        height: 38,
+        padding: 5,
+        borderRadius: 58,
+        backgroundColor: "#b3b3b3",
+        marginHorizontal: 3
     },
-    imageContainer: {
-        borderRadius: 50,
-        backgroundColor: "#5c5c5c",
-        width: 25,
-        height: 25
+    scrollText: {
+        color: "#fff",
+        fontSize: 15,
+        fontWeight: "600"
     }
 })

@@ -8,14 +8,14 @@ const HeaderComponent = ({navigation}) => {
             <View style={styles.header}>
                 <View style={styles.logoContainer}>
                     <Image style={styles.iconStyle} resizeMode="contain" source={require('../../assets/youtube.png')} />
-                    <Text style={{ fontSize: 20, fontWeight: "700" }}>YouTube</Text>
+                    <Text style={{ fontSize: 25, fontWeight: "600", letterSpacing: -2  }}>YouTube</Text>
                 </View>
                 <View style={styles.iconContainer}>
                     <TouchableWithoutFeedback onPress={() => navigation.navigate('upload')} >
-                        <MaterialIcons name="videocam" size={30} color="#5c5c5c" />
+                        <MaterialIcons name="videocam" size={25} color="#5c5c5c" />
                     </TouchableWithoutFeedback>
                     <TouchableWithoutFeedback onPress={() => navigation.navigate('search')}>
-                        <Fontisto name="search" size={20} color="#5c5c5c" />
+                        <Fontisto name="search" size={15} color="#5c5c5c" />
                     </TouchableWithoutFeedback>                    
                     <TouchableWithoutFeedback onPress={() => navigation.navigate('setting')} >
                         <View style={styles.imageContainer}></View>
@@ -58,13 +58,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '45%',
+        width: '35%',
         paddingRight: 10
     },
     imageContainer: {
         borderRadius: 50,
         backgroundColor: "#5c5c5c",
-        width: 25,
-        height: 25
+        width: 22,
+        height: 22
     }
 })
