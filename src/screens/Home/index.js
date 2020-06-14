@@ -4,7 +4,6 @@ import {
     StatusBar, FlatList,
     Image, Dimensions,
     TouchableOpacity,
-    Button,
 } from 'react-native'
 import HeaderComponent from './HeaderComponent';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
