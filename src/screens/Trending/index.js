@@ -14,7 +14,7 @@ const TrendingScreen = (props) => {
     const renderTrendingList = ({ item, index }) => (
         <TouchableOpacity activeOpacity={0.7} style={styles.itemContainer} key={item.videoId} onPress={() => console.log(item)}>
             <View style={styles.listItemContainer}>
-                <Image style={{ height: 190, width: '100%' }} resizeMode="cover" source={require('../../../assets/image.png')} />
+                <Image style={{ height: 190, width: '100%' }} resizeMode="cover" source={require('../../../assets/bike.png')} />
                 <View style={styles.descriptionContainer}>
                     <View style={styles.channelIcon}>
                         <Text style={{ fontWeight: "900", color: "#000", fontSize: 30 }}>D</Text>

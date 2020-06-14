@@ -5,7 +5,7 @@ import {
     Image, Dimensions,
     TouchableOpacity,
 } from 'react-native'
-import HeaderComponent from './HeaderComponent';
+import HeaderComponent from '../../components/ListHeaderComponent';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 // Dummy DATA

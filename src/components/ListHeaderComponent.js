@@ -1,7 +1,7 @@
 import React from 'react'
-import { StyleSheet, View, Dimensions, TouchableWithoutFeedback, Text, ScrollView, Button } from 'react-native'
+import { StyleSheet, View, Dimensions, Text, ScrollView } from 'react-native'
 
-const HeaderComponent = ({ navigation }) => {
+const ListHeaderComponent = ({ navigation }) => {
 
     const navBarItems = [
         { title: 'All', value: 'all' },
@@ -44,7 +44,7 @@ const HeaderComponent = ({ navigation }) => {
     )
 }
 
-export default HeaderComponent
+export default ListHeaderComponent
 
 const DEVICE_WIDTH = Dimensions.get('window').width;
 
