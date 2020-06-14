@@ -18,6 +18,9 @@ import SettingScreen from '../screens/SettingsScreen'
 import SearchScreen from '../screens/SearchScreen'
 import UploadScreen from '../screens/UploadsScreen'
 
+// HeaderComponent
+import HeaderComponent from './HeaderComponent';
+
 const Tabs = createBottomTabNavigator();
 const Stack = createStackNavigator();
 
@@ -72,11 +75,17 @@ const TabNavigation = () => {
 const Routes = () => {
     return (
         <NavigationContainer>
-            <Stack.Navigator screenOptions={{ headerShown: false }} initialRouteName="home">
+            <Stack.Navigator screenOptions={{
+                header: (props) => (
+                    <View>
+                        <HeaderComponent {...props} />
+                    </View>
+                )
+            }} initialRouteName="home">
                 <Stack.Screen name="home" component={TabNavigation} />
-                <Stack.Screen name="upload" component={UploadScreen} />
-                <Stack.Screen name="search" component={SearchScreen} />
-                <Stack.Screen name="setting" component={SettingScreen} />
+                <Stack.Screen options={{headerShown: false}} name="upload" component={UploadScreen} />
+                <Stack.Screen options={{headerShown: false}} name="search" component={SearchScreen} />
+                <Stack.Screen options={{headerShown: false}} name="setting" component={SettingScreen} />
             </Stack.Navigator>
             {/* <TabNavigation /> */}
         </NavigationContainer>

@@ -7,7 +7,7 @@ const HeaderComponent = ({navigation}) => {
         <View style={styles.headerContainer} >
             <View style={styles.header}>
                 <View style={styles.logoContainer}>
-                    <Image style={styles.iconStyle} resizeMode="contain" source={require('../../../assets/youtube.png')} />
+                    <Image style={styles.iconStyle} resizeMode="contain" source={require('../../assets/youtube.png')} />
                     <Text style={{ fontSize: 20, fontWeight: "700" }}>YouTube</Text>
                 </View>
                 <View style={styles.iconContainer}>
